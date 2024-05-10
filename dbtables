@@ -1,0 +1,159 @@
+CREATE TABLE ordered_products2003 (
+    oid VARCHAR,
+	pid int,
+	qty int,
+    price NUMERIC,
+	pname VARCHAR,
+    gst numeric
+);
+
+CREATE TABLE orders2003 (
+    oid VARCHAR,
+    oname VARCHAR,
+    totalprice NUMERIC,
+    cid INT
+);
+
+products2003
+pid int pcid int pname vc price num hsncode int image vc shippingcharges numeric
+1	1	"laptop"	70000.00	1001	"laptop.jpg"	
+2	1	"mobile"	25000.00	2002	"phone.jpg"	
+3	1	"monitor"	50000.00	1001	"monitor.jpg"	
+4	1	"air conditioner"	30000.00	2002	"ac.jpg"	
+5	1	"Washing Machine"	40000.00	1001	"wm.jpg"	
+6	2	"Saree"	10000.00	4004	"saree.jpg"	
+7	2	"Shirt"	4000.00	4004	"shirt.jpg"	
+8	2	"Jean"	3000.00	4004	"jean.jpg"	
+9	2	"Hoodie"	2000.00	5005	"hoodie.jpg"	
+10	2	"Trouser"	3000.00	4004	"trouser.jpg"	
+11	3	"Harry Potter"	5000.00	4004	"hp.jpg"	
+12	3	"Wings of fire"	2000.00	4004	"wof.jpg"	
+13	3	"A story of struggle"	4000.00	4004	"sos.jpg"	
+14	3	"The ocean at the end of the land"	2000.00	5005	"oel.jpg"	
+15	3	"The kite runner"	2000.00	4004	"kr.jpg"	
+16	4	"Cot"	5000.00	4004	"cot.jpg"	
+17	4	"Dining Table"	4000.00	4004	"dt.jpg"	
+18	4	"Wardrobes"	10000.00	2002	"wd.jpg"	
+19	4	"chair"	3000.00	5005	"chair.jpg"	
+20	4	"Bench"	2000.00	4004	"bench.jpg"	
+21	5	"car"	1000.00	4004	"car.jpg"	
+22	5	"DancingElephant"	2000.00	4004	"dele.jpg"	
+23	5	"Panda Teddy"	500.00	2002	"panda.jpg"	
+24	5	"spinner"	1500.00	4004	"spinner.jpg"	
+25	5	"Talking Toy"	2500.00	4004	"talkingtoy.jpg"	
+
+select * from customer2003
+
+cid int name vc mobile vc location vc address text username vc password vc
+706439	"sanjana"	"7896325411"	"vizag"	"11-4-15, gajuwaka,vizag"	"sanju"	"456"
+615506	"Varshini"	"7671015321"	"Srikakulam"	"Narasannapeta"	"virat"	"789"
+297227	"Varshini"	"7671015321"	"Srikakulam"	"Narasannapeta"	"sahithi"	"789"
+528784	"Supriya"	"123456789"	"Srikakulam"	"Narasannapeta"	"supriya"	"593"
+204436	"Supriya"	"123456789"	"Srikakulam"	"Narasannapeta"	"supriya"	"593"
+646825	"Supriya"	"123456789"	"Srikakulam"	"Narasannapeta"	"supriya"	"1234"
+484012	"Varshini"	"07671015321"	"Srikakulam"	"Narasannapeta"	"varshini"	"5678"
+154308	"Varshini"	"07671015321"	"Srikakulam"	"Narasannapeta"	"varshini"	"789"
+441819	"abc"	"457658735"	"frwegwdg"	"ewqtdfghs"	"hello"	"111"
+4	"sanjana"	"9848457726"	"vizag"	"vizag"	"ram"	"159"
+350267	"abc"	"4576457"	"dsgvgd"	"gwegfsdg"	"hii"	"222"
+644642	"Asha"	"4587398563"	"India"	"uirtfjsdvgftasf"	"Asha Bandi"	"1234567"
+447551	"Asha"	"4587398563"	"India"	"5687367"	"Asha Bandi"	"1234567"
+275466	"pravallikha"	"9876543211"	"srikakulam"	"Narasannapeta"	"pravali"	"333"
+642067	"abc"	"4576457"	"dfa"	"gwegfsdg"	"hello"	"444"
+937672	"abc"	"4576457"	"dfa"	"233412543"	"hihello"	"666"
+713527	"Asha"	"4587398563"	"India"	"ryhwsrtgbnsrgyh"	"Asha Bandi"	"1234567"
+877957	"Asha"	"4587398563"	"India"	"dfjhdsgc bvf"	"Asha Bandi"	"1234567"
+638044	"Asha"	"4587398563"	"India"	"gdryxsfxr"	"Asha Bandi"	"1234567"
+390400	"abc"	"4576457"	"dfa"	"gwegfsdg"	"xyz"	"999"
+873502	"Asha"	"4587398563"	"India"	"reyb gscdsgcve"	"Asha Bandi"	"1234567"
+749964	"Asha"	"4587398563"	"India"	"etrb u bygc awsf"	"Asha Bandi"	"1234567"
+378426	"Asha"	"4587398563"	"India"	"ertyh fx g"	"Asha Bandi"	"21423"
+866083	"Varshini"	"23433214523"	"cxgxbv"	"Narasannapeta"	"sahithi"	"012"
+280204	"Asha"	"4587398563"	"India"	"er5tedsavc dgh"	"Asha Bandi"	"`2423"
+433233	"Varshini"	"23433214523"	"cxgxbv"	"Narasannapeta"	"sahithi"	"012"
+321300	"Asha"	"4587398563"	"India"	"er6tb "	"Asha Bandi"	"3465"
+592586	"abcdef"	"23433214523"	"cxgxbv"	"gwegfsdg"	"abc"	"100"
+595817	"abcdef"	"23433214523"	"cxgxbv"	"gwegfsdg"	"abc"	"100"
+793293	"abcdef"	"23433214523"	"cxgxbv"	"gwegfsdg"	"abc"	"100"
+619473	"Asha"	"4587398563"	"India"	"agdfs "	"Asha Bandi"	"1243"
+542954	"YogyaSri"	"4576457"	"Tekkali"	"Tekkali"	"Yogya"	"100"
+788902	"Asha"	"4587398563"	"India"	"dfcadsfv g "	"Asha Bandi"	"1234567"
+962277	"Sireesha"	"2344576787"	"vzm"	"asdsfdf"	"siri"	"1111"
+755855	"Kuimilli Sahithi Varshini"	"8976564342"	"Srikakulam"	"Narasannapeta"	"sahithivarshini"	"varshi"
+967762	"jghhgk"	"wrfsdg"	"gsfdgf"	"sgfdsfdsg"	"varshi"	"11111"
+756729	"dfsd"	"78978097865"	"dfgdfg"	"drgdcgb"	"Likhitha"	"likhi"
+978864	"varshini"	"56786436"	"dghhgf"	"wetywryu"	"dshgh"	"2323"
+497900	"dfhgh"	"64775"	"dfgs"	"dsghhg"	"abcd"	"abc"
+951994	"gdbh"	"wt265"	"degeh"	"wgfwfg"	"wrwe"	"wrt"
+646381	"Varshini"	"7671015321"	"Srikakulam"	"Narasannapeta"	"SahithiVarshini"	"varshi"
+639236	"Varshini"	"7671015321"	"Srikakulam"	"Narasannapeta"	"SahithiVarshiniKurimilli"	"123"
+5	"ram"	"7896325411"	"vzm"	"VZM"	"ram"	"789"
+6	"ram"	"9848457726"	"vzm"	"fasdfds"	"ram"	"789"
+171413	"Varshini"	"7671015321"	"Srikakulam"	"Narasannapeta"	"SahithiVarshiniKurimilli"	"123"
+419811	"sahithi varshini"	"7671015321"	"srikakulam"	"narasannapeta"	"zxcfv"	"93"
+
+
+
+select * from product_category2003
+
+pcid int pcname vc
+1	"Electronics"
+2	"Clothing"
+3	"Books"
+4	"Furniture"
+5	"Toys"
+
+select * from ProductCategoryWiseServiceableRegions2003
+prct_id int srrg_id int
+1	2
+2	2
+3	2
+4	2
+5	2
+1	1
+2	1
+3	1
+4	1
+5	1
+1	3
+2	3
+3	3
+4	3
+5	3
+1	4
+2	4
+3	4
+4	4
+5	4
+1	5
+2	5
+3	5
+4	5
+5	5
+1	6
+2	6
+3	6
+4	6
+5	6
+23	5
+23	5
+23	5
+23	5
+23	5
+23	6
+23	6
+23	6
+23	6
+23	6
+
+
+select * from ServiceableRegions2003
+
+srrg_id int srrg_name vc srrg_pinfrom vc srrg_pinto vc
+1	"Delhi"	"110001"	"110100"
+2	"Mumbai"	"400001"	"400100"
+3	"Bangalore"	"560001"	"560100"
+4	"Chennai"	"600001"	"600100"
+5	"Kolkata"	"700001"	"700100"
+6	"Vizag"	"530001"	"530100"
+
