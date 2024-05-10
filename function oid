@@ -1,0 +1,9 @@
+create or replace function generate_orderid2003() returns TEXT as $$
+declare
+	prefix TEXT:='ORD';
+	TIMESTAMP_str TEXT :=to_char(CURRENT_TIMESTAMP,'YYYYMMDDHH24MISS');
+	random_str TEXT:=LPAD(FLOOR(RANDOM()*1000000)::TEXT,6,'0');
+BEGIN
+	RETURN prefix||TIMESTAMP_str||random_str;
+END;
+$$ LANGUAGE plpgsql;
