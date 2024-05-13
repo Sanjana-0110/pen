@@ -157,3 +157,92 @@ srrg_id int srrg_name vc srrg_pinfrom vc srrg_pinto vc
 5	"Kolkata"	"700001"	"700100"
 6	"Vizag"	"530001"	"530100"
 
+create table cashback2003 (minv numeric,maxv numeric,cashback numeric);
+drop table cashback2003
+insert into cashback2003 values
+(500,1000,50),
+(1001,2000,90),
+(2001,5000,150),
+(5001,10000,250),
+(10001,50000,350),(50001,100000,500),(100001,500001,750);
+
+SELECT * FROM cashback2003
+
+SELECT * FROM ordervaluewiseshippingcharges2003
+
+1	0	2000	100
+2	2001	5000	50
+3	5001	1000000	0
+
+SELECT * FROM productstock2003
+
+3	"monitor"		80
+4	"air conditioner"		20
+5	"Washing Machine"		60
+6	"Saree"		40
+7	"Shirt"		70
+8	"Jean"		10
+9	"Hoodie"		0
+10	"Trouser"		15
+11	"Harry Potter"		25
+12	"Wings of fire"		35
+13	"A story of struggle"		45
+14	"The ocean at the end of the land"		0
+15	"The kite runner"		65
+16	"Cot"		75
+17	"Dining Table"		85
+18	"Wardrobes"		95
+19	"chair"		5
+20	"Bench"		60
+21	"car"		35
+22	"DancingElephant"		25
+24	"spinner"		55
+2	"mobile"		28
+1	"laptop"		1
+23	"Panda Teddy"		28
+25	"Talking Toy"		29
+
+create table coupon2003 (dcp_id int,dcp_code varchar(50),dcp_val numeric,dcp_minval numeric,dcp_maxval numeric ,dcp_noc int);
+
+insert into coupon2003 values
+(1,'vspcpn1',100,300,2000,100),
+(2,'vspcpn2',500,2001,5000,75),
+(3,'vspcpn3',1000,5001,10000,50),
+(4,'vspcpn4',1500,10001,50000,25),
+(5,'vspcpn5',2500,50001,100000,10),
+(6,'vspcpn6',5000,100001,500001,5);
+
+select * from coupon2003 
+
+ALTER TABLE orders2003
+ADD COLUMN dcp_id INT;
+
+
+products2003 after updating discount
+
+1	1	"laptop"	70000.00	1001	"laptop.jpg"		15
+2	1	"mobile"	25000.00	2002	"phone.jpg"		15
+3	1	"monitor"	50000.00	1001	"monitor.jpg"		15
+4	1	"air conditioner"	30000.00	2002	"ac.jpg"		15
+5	1	"Washing Machine"	40000.00	1001	"wm.jpg"		15
+6	2	"Saree"	10000.00	4004	"saree.jpg"		10
+7	2	"Shirt"	4000.00	4004	"shirt.jpg"		5
+8	2	"Jean"	3000.00	4004	"jean.jpg"		5
+9	2	"Hoodie"	2000.00	5005	"hoodie.jpg"		5
+10	2	"Trouser"	3000.00	4004	"trouser.jpg"		5
+11	3	"Harry Potter"	5000.00	4004	"hp.jpg"		5
+12	3	"Wings of fire"	2000.00	4004	"wof.jpg"		5
+13	3	"A story of struggle"	4000.00	4004	"sos.jpg"		5
+14	3	"The ocean at the end of the land"	2000.00	5005	"oel.jpg"		5
+15	3	"The kite runner"	2000.00	4004	"kr.jpg"		5
+16	4	"Cot"	5000.00	4004	"cot.jpg"		5
+17	4	"Dining Table"	4000.00	4004	"dt.jpg"		5
+18	4	"Wardrobes"	10000.00	2002	"wd.jpg"		10
+19	4	"chair"	3000.00	5005	"chair.jpg"		5
+20	4	"Bench"	2000.00	4004	"bench.jpg"		5
+21	5	"car"	1000.00	4004	"car.jpg"		5
+22	5	"DancingElephant"	2000.00	4004	"dele.jpg"		5
+24	5	"spinner"	1500.00	4004	"spinner.jpg"		5
+23	5	"Panda Teddy"	500.00	2002	"panda.jpg"		5
+25	5	"Talking Toy"	700	4004	"talkingtoy.jpg"		7
+
