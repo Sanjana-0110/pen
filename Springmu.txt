@@ -1,0 +1,172 @@
+IOC Container
+In the Spring Framework, the Inversion of Control (IoC) container is a core component responsible for managing the lifecycle and configuration of application objects. It achieves this through dependency injection, a design pattern in which an object receives other objects it depends on, rather than creating them itself.
+
+Key Functions of the IoC Container:
+Object Creation: The IoC container instantiates the beans (objects) defined in the configuration.
+Dependency Injection: It injects the required dependencies into these beans. Dependencies can be other beans, configuration values, or resources.
+Lifecycle Management: The container manages the entire lifecycle of the beans, from instantiation to destruction.
+Configuration: Beans are configured based on metadata provided through XML files, annotations, or Java configuration classes.
+------------------------------------------------------------------------------------------------------------------------
+
+beans.xml --- user-defined xml
+
+<beans xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define a bean for MyRepository -->
+    <bean id="myRepository" class="com.example.MyRepository" />
+
+    <!-- Define a bean for MyService and inject MyRepository -->
+    <bean id="myService" class="com.example.MyService">
+        <property name="myRepository" ref="myRepository"/>
+    </bean>
+
+</beans>
+
+App.java
+---------
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class App {
+    public static void main(String[] args) {
+        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class); // AnnotationConfigApplicationContext. The .class syntax is used to obtain a reference to the Class object representing the AppConfig class itself, which is required for the AnnotationConfigApplicationContext to scan and process the configuration.
+
+												//So, you cannot simply pass AppConfig without .class because it wouldn't be a valid reference to the class object. You need to use the .class syntax to obtain the reference to the class object itself.
+        
+        MyService myService = context.getBean(MyService.class);
+        myService.performAction();
+    }
+}
+
+The AppConfig class you've provided is an example of Java-based configuration in the Spring Framework. It defines beans using @Bean methods within a @Configuration-annotated class. Let's walk through how this class is used and the flow of the Spring application:
+
+Creating the Application Context:
+
+In your application, you need to create an instance of the Spring ApplicationContext. This can be done typically in your main class or any other configuration entry point.
+Loading the Configuration:
+
+When the ApplicationContext is created, it scans your project for classes annotated with @Configuration.
+It finds the AppConfig class and processes it.
+
+AppConfig.java ---- it consists of all the beans 
+----------------------
+package com.example;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class AppConfig {
+
+    @Bean
+    public MyService myService() {
+        return new MyService(myRepository());
+    }
+
+    @Bean
+    public MyRepository myRepository() {
+        return new MyRepository();
+    }
+}
+
+
+Bean Definition:
+
+The @Bean annotation is used on methods within the AppConfig class to declare beans.
+The myService() method declares a bean of type MyService.
+The myRepository() method declares a bean of type MyRepository.
+Bean Instantiation and Wiring:
+
+When the ApplicationContext processes the AppConfig class, it calls the myService() and myRepository() methods to create bean instances.
+The myService() method creates a MyService instance and injects a MyRepository instance obtained from the myRepository() method.
+The myRepository() method creates a MyRepository instance.
+
+
+MyService myService = context.getBean(MyService.class);
+
+context: This likely refers to an instance of the Spring ApplicationContext. This instance manages all the beans in the Spring application and provides methods to retrieve them.
+
+.getBean(MyService.class): This method call retrieves a bean of the specified type from the application context. In this case, it fetches a bean of type MyService.
+
+\=: This is the assignment operator, assigning the retrieved bean to the variable myService.
+
+So, in simple terms, this line fetches the MyService bean from the Spring application context and assigns it to the variable myService, allowing you to use it in your code.
+
+NOTE
+----------------------
+<beans xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define a bean for MyRepository -->
+    <bean id="myRepository" class="com.example.MyRepository" />
+
+    <!-- Define a bean for MyService and inject MyRepository -->
+    <bean id="myService" class="com.example.MyService">
+        <property name="abc" ref="myRepository"/>
+    </bean>
+
+</beans>
+
+<property name="myRepository" ref="myRepository"/>:
+
+name="myRepository": This specifies that the property to be set is named myRepository.
+ref="myRepository": This specifies the bean ID of the bean to be injected, which is also named myRepository.
+
+if i change name="abc" 
+
+--------------------------------------------------------------
+<bean id="myRepository" class="com.example.MyRepository" />
+
+<bean id="myService" class="com.example.MyService">
+        <property name="abc" ref="myRepository"/>
+    </bean>
+----------------------------------------------------------------
+then code changes to-------
+package com.example;
+
+public class MyService {
+    private MyRepository abc;
+
+    // Setter method for abc property
+    public void setAbc(MyRepository abc) {
+        this.abc = abc;
+    }
+
+    public void performAction() {
+        abc.doSomething();
+    }
+}
+
+--------------------------------------------------------------
+package com.example;
+
+public class MyRepository {
+    public void doSomething() {
+        System.out.println("Doing something in MyRepository");
+    }
+}
+
+
+
+public class MyService {
+    private final MyRepository myRepository;
+
+    public MyService(MyRepository myRepository) {
+        this.myRepository = myRepository;
+    }
+
+    public void performAction() {
+        myRepository.doSomething();
+    }
+}
+
+
+
+
+
+
